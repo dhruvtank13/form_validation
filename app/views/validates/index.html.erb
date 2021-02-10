@@ -1,0 +1,22 @@
+<%if flash[:notice]%>
+<div class="alert alert-success" role="alert" style="text-align:center">
+  <%= flash[:notice]%>
+</div>
+<%end%>
+
+<%=link_to "Insert Data", new_validate_path %><br><hr>
+<%@alldata.each do |data|%>
+First Name  ::<%=data.Firstname%><br>
+Last Name  ::<%=data.Lastname%><br>
+
+Birth Date  ::<%=data.Bdate%><br>
+City  ::<%=data.City%><br>
+State  ::<%=data.State%><br>
+Contry  ::<%=data.Contry%><br>
+Hobby  ::<%=data.Hobby%><br>
+Company Name  ::<%=data.Companyname%><br>
+Employe id  ::<%=data.Employeid%><br>
+Email  ::<%=data.email%><br>
+phone number  ::<%=data.Number%><br>
+<hr>
+<%end%>

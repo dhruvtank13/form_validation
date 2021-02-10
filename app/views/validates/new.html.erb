@@ -1,0 +1,49 @@
+<%if flash[:notice]%>
+<div class="alert alert-success" role="alert" style="text-align:center">
+  <%= flash[:notice]%>
+</div>
+<%end%>
+<div style="height:900px;width:90%;margin-left:5%">
+  <center><h1>Personal Information</h1><br></center>
+  <%= form_for @info, url:validates_path,method:'post' do |f| %>
+  
+  <div class="row g-2">
+    <div class="col-sm">
+      First Name *<%=f.text_field :Firstname,class:"form-control"%>
+      <div class="error_msg"><%=@info.errors[:Firstname].to_sentence%><br><br></div>
+    </div>
+    <div class="col-sm">
+      Last Name<%=f.text_field :Lastname,class:"form-control"%><br><br>
+    </div>
+  </div>
+  
+  
+  
+  Birth Date<%=f.date_field :Bdate,class:"form-control"%><br><br>
+  Address<%=f.text_area :Address,class:"form-control"%><br><br>
+  City<%=f.text_field :City,class:"form-control"%><br><br>
+  State<%=f.text_field :State,class:"form-control"%><br><br>
+  Contry<%=f.text_field :Contry,class:"form-control"%><br><br>
+  Hobby<%=f.text_field :Hobby,class:"form-control"%><br><br><br>
+  
+  <center><h1>Professional Information</h1><br></center>
+  
+  Comapanyname<%=f.text_field :Companyname,class:"form-control"%><br><br>
+  Number<%=f.text_field :Number,class:"form-control"%>
+  <div class="error_msg"><%=@info.errors[:Number].to_sentence%></div><br><br>
+  Employeid<%=f.text_field :Employeid,class:"form-control"%><br><br>
+  Email<%=f.text_field :email,class:"form-control"%>
+  <div class="error_msg"><%=@info.errors[:email].to_sentence%><br><br></div>
+  Password<%=f.text_field :password,class:"form-control"%>
+  <div class="error_msg">
+  <%=@info.errors[:password].to_sentence%></div><br><br>
+  Re-Enter Password<%=f.text_field :password_confirmation,class:"form-control"%>
+  <div class="error_msg">
+  <%=@info.errors[:password_confirmation].to_sentence%></div><br><br>
+  <div>
+    <p>Please check your data before submit</p>
+  <%=f.check_box :conform,class:"form-check-input"%>
+  </div>
+  <%=f.submit "Submit",class:"btn btn-primary"%>
+  <%end%>
+</div>
